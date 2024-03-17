@@ -10,6 +10,7 @@ djangorestframework = "*"
 django-heroku = "*"
 gunicorn = "*"
 django = "==4.0"
+waitress = "*"
 
 [dev-packages]
 
