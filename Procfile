@@ -1,1 +1,1 @@
-web: waitress-serve --listen=127.0.0.1:8000 expenses_app.wsgi:application
+web: waitress-serve --listen=0.0.0.0:5000 expenses_app.wsgi:application
