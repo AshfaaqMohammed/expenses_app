@@ -61,6 +61,8 @@ usernameField.addEventListener('keyup', (e)=>{
     usernameField.classList.remove("is-invalid");
     feedBackFArea.style.display = "none";
 
+
+    
     if(usernameVal.length>0){
         fetch('/authentication/validate-username',{
         body:JSON.stringify({ username: usernameVal }),
