@@ -6,6 +6,7 @@ const usernameSuccessOutput = document.querySelector('.usernameSuccessOutput');
 const emailSuccessOutput = document.querySelector('.emailSuccessOutput');
 const showPasswordToggle = document.querySelector(".showPasswordToggle");
 const passwordField = document.querySelector('#passwordField')
+const submitBtn = document.querySelector(".submit-btn")
 
 const handleToggleInput = (e) => {
 
@@ -42,9 +43,14 @@ emailField.addEventListener('keyup', (e)=>{
         console.log("data",data);
         emailSuccessOutput.style.display='none';
         if (data.email_error){
+            submitBtn.setAttribute("disabled","disabled");
+            submitBtn.disabled=true;
             emailField.classList.add("is-invalid");
             emailfeedBackFArea.style.display = "block";
             emailfeedBackFArea.innerHTML=`<p>${data.email_error}</p>`
+        }
+        else{
+            submitBtn.removeAttribute("disabled");
         }
     }));
     }
@@ -70,12 +76,14 @@ usernameField.addEventListener('keyup', (e)=>{
     })
     .then(res=>res.json()
     .then(data=>{
-        console.log("data",data);
         usernameSuccessOutput.style.display='none';
         if (data.username_error){
             usernameField.classList.add("is-invalid");
             feedBackFArea.style.display = "block";
             feedBackFArea.innerHTML=`<p>${data.username_error}</p>`
+            submitBtn.disabled=true;
+        }else{
+            submitBtn.removeAttribute("disabled");
         }
     }));
     }

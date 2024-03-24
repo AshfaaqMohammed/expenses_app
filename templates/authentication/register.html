@@ -11,15 +11,21 @@
                 <div class="card-title py-3">
                     <h4>Register for a free account</h4>
                 </div>
+
+
                 <form action="" method="post">
+
+                    {% csrf_token %}
+
+                    {% include 'partials/_messages.html' %}
                     <div class="form-group">
-                        <input type="text" name="username" placeholder="Name" id="usernameField" class="form-control form-control-sm">
+                        <input type="text" name="username" placeholder="Name" id="usernameField" class="form-control form-control-sm" value="{{ fieldValues.username }}">
                     </div>
                     <div class="invalid-feedback invalid_feedback" style="display: none;"></div>
                     <p class="text-sm text-success usernameSuccessOutput"></p>
                     <br>
                     <div class="form-group">
-                        <input type="email" name="email" placeholder="Email" id="emailField" class="form-control form-control-sm">
+                        <input type="email" name="email" placeholder="Email" id="emailField" class="form-control form-control-sm " value="{{ fieldValues.email }}">
                     </div>
                     <div class="invalid-feedback emailfeedBackFArea" style="display: none;"></div>
                     <p class="text-sm text-success emailSuccessOutput"></p>
@@ -30,7 +36,7 @@
                         <small class="float-end py-3 showPasswordToggle">SHOW</small>
                     </div>
                     <br>
-                    <input type="submit" value="Register" class="btn btn-block btn-primary form-control form-control-sm">
+                    <input type="submit" value="Register" class="btn btn-block btn-primary form-control form-control-sm submit-btn">
                 </form>
             </div>
 
